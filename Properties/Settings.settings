@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WorlWithAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=DESKTOP-ELQ12AO;Initial Catalog=CRMGURU;User ID=sa;Password=Tok_Vol583;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </Setting>
+    <Setting Name="TableCity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">City</Value>
+    </Setting>
+    <Setting Name="TableRegion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Region</Value>
+    </Setting>
+    <Setting Name="TableCountry" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Country</Value>
+    </Setting>
+    <Setting Name="Catalog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRMGURU</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

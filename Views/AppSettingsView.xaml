@@ -1,0 +1,99 @@
+﻿<Page x:Class="WorlWithAPI.Views.AppSettingsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WorlWithAPI.Views"
+      xmlns:vm="clr-namespace:WorlWithAPI.ViewModels"
+      xmlns:m="clr-namespace:WorlWithAPI.Models"
+      mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance vm:AppSettingsVM}">
+
+    <Grid Background="White">
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="Заполнение строки подключения"
+                      Margin="10 10 10 0" Padding="5"
+                      BorderThickness="2">
+
+                    <DockPanel LastChildFill="True">
+                        <CheckBox x:Name="FullCS"
+                              DockPanel.Dock="Top"
+                              Content="Ввести полную строку"
+                              IsChecked="False"/>
+                        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                            <TextBlock Text="Источник данных (Data Source)"/>
+                            <TextBox Text="{Binding DataSource}"/>
+                            <TextBlock Text="Название быза данных (Catalog)"/>
+                            <TextBox Text="{Binding Catalog}"/>
+                            <TextBlock Text="Имя пользователя (User ID)"/>
+                            <TextBox Text="{Binding ID}"/>
+                            <TextBlock Text="Пароль (Password)"/>
+                            <TextBox Text="{Binding Password}"/>
+                            <Button Content="Записать строку"
+                                    Margin="10"
+                                    Height="25"/>
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=FullCS, Path=IsChecked}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Введите строку подключения"/>
+                            <TextBox VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                     Text="{Binding ConnectionString}"/>
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=FullCS, Path=IsChecked}" Value="false">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                        </StackPanel>
+                    </DockPanel>
+                </GroupBox>
+
+                <GroupBox Header="Названия таблиц"
+                      Margin="10 0" Padding="5"
+                      BorderThickness="2">
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Grid.Row="0"
+                                   Text="Имя таблицы столиц"/>
+                        <TextBox Grid.Column="1" Grid.Row="0"
+                                 Text="{Binding City}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1"
+                                   Text="Имя таблицы регионов"/>
+                        <TextBox Grid.Column="1" Grid.Row="1"
+                                 Text="{Binding Region}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2"
+                                   Text="Имя таблица стран"/>
+                        <TextBox Grid.Column="1" Grid.Row="2"
+                                 Text="{Binding Country}"/>
+                    </Grid>
+                </GroupBox>
+                <Button Content="Сохранить изменения"
+                        Margin="10"
+                        Command="{Binding SaveChanges}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
