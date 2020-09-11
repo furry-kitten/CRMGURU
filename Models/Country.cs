@@ -56,7 +56,11 @@ namespace WorlWithAPI.Models
         public bool IsReadOnly
         {
             get => isReadOnly;
-            set { isReadOnly = value; OnPropertyChanged(); }
+            set
+            {
+                isReadOnly = value;
+                OnPropertyChanged();
+            }
         }
         public int ID => id;
         [JsonPropertyName("population")]
@@ -75,35 +79,65 @@ namespace WorlWithAPI.Models
         public string Name
         {
             get => name;
-            set { name = value; OnPropertyChanged(); }
+            set
+            {
+                name = value;
+                OnPropertyChanged();
+            }
         }
         [JsonPropertyName("alpha2Code")]
         public string Code
         {
             get => code;
-            set { code = value; OnPropertyChanged(); }
+            set
+            {
+                code = value;
+                OnPropertyChanged();
+            }
         }
+        /// <summary>
+        /// Используется для получения данных с API (костыль)
+        /// </summary>
         [JsonPropertyName("region")]
         public string RegionName
         {
             get => region.Name;
-            set { region = new Region(value); OnPropertyChanged("Region"); }
+            set
+            {
+                region = new Region(value);
+                OnPropertyChanged("Region");
+            }
         }
+        /// <summary>
+        /// Используется для получения данных с API (костыль)
+        /// </summary>
         [JsonPropertyName("capital")]
         public string CapitalName
         {
             get => capitalCity.Name;
-            set { capitalCity = new City(value); OnPropertyChanged("CapitalCity"); }
+            set
+            {
+                capitalCity = new City(value);
+                OnPropertyChanged("CapitalCity");
+            }
         }
         public Region Region
         {
             get => region;
-            set { region = value; OnPropertyChanged(); }
+            set
+            {
+                region = value;
+                OnPropertyChanged();
+            }
         }
         public City CapitalCity
         {
             get => capitalCity;
-            set { capitalCity = value; OnPropertyChanged(); }
+            set
+            {
+                capitalCity = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

@@ -22,13 +22,25 @@
                          Margin="0 0 5 0"
                          Text="{Binding SearchByName}">
             </TextBox>
-            <Button Content="Поиск"
-                        Padding="5 0"
-                        Margin="5 0 0 0"
-                        Command="{Binding Search}">
+            <Button Content="Поиск" 
+                    Padding="5 0"
+                    Margin="5 0 0 0"
+                    Command="{Binding Search}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=search, Path=Text}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
         </StackPanel>
 
+        <!--
+        Отображение спика найденый стран
+        -->
         <ScrollViewer Grid.Row="1"
                       HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
                       HorizontalAlignment="Stretch"

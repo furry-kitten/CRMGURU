@@ -32,7 +32,8 @@
                             <TextBox Text="{Binding Password}"/>
                             <Button Content="Записать строку"
                                     Margin="10"
-                                    Height="25"/>
+                                    Height="25"
+                                    Command="{Binding CombineCS}"/>
                             <StackPanel.Style>
                                 <Style TargetType="StackPanel">
                                     <Style.Triggers>

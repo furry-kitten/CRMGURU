@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 using WorlWithAPI.Models;
 
@@ -18,11 +19,7 @@ namespace WorlWithAPI.ViewModels
             catalog = string.Empty;
 
         public ICommand SaveChanges => new DelegateCommand(Saving);
-        public ICommand CombineCS => new DelegateCommand(Combine,
-            string.IsNullOrEmpty(id.Trim()) ||
-            string.IsNullOrEmpty(pas.Trim()) ||
-            string.IsNullOrEmpty(catalog.Trim()) ||
-            string.IsNullOrEmpty(datasource.Trim()));
+        public ICommand CombineCS => new DelegateCommand(Combine);
 
         public string ConnectionString
         {
@@ -67,22 +64,38 @@ namespace WorlWithAPI.ViewModels
         public string DataSource
         {
             get => datasource;
-            set { datasource = value; OnPropertyChanged(); }
+            set
+            { 
+                datasource = value;
+                OnPropertyChanged();
+            }
         }
         public string Catalog
         {
             get => catalog;
-            set { catalog = value; OnPropertyChanged(); }
+            set
+            {
+                catalog = value;
+                OnPropertyChanged();
+            }
         }
         public string ID
         {
             get => id;
-            set { id = value; OnPropertyChanged(); }
+            set
+            {
+                id = value;
+                OnPropertyChanged();
+            }
         }
         public string Password
         {
             get => pas;
-            set { pas = value; OnPropertyChanged(); }
+            set
+            {
+                pas = value;
+                OnPropertyChanged();
+            }
         }
 
         private void Saving()
@@ -91,8 +104,9 @@ namespace WorlWithAPI.ViewModels
         }
         private void Combine()
         {
-            AppSettings.ConnectionString = $"Data Source={datasource};Initial Catalog={catalog};User ID={id};Password={pas};Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            Saving();
+            MessageBox.Show("combine");
+            //AppSettings.ConnectionString = $"Data Source={datasource};Initial Catalog={catalog};User ID={id};Password={pas};Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            //Saving();
         }
     }
 }

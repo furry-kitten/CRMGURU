@@ -33,7 +33,11 @@ namespace WorlWithAPI.Models
         public string Name
         {
             get => name;
-            set { name = value; OnPropertyChanged(); }
+            set
+            {
+                name = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

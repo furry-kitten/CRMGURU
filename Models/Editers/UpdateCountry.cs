@@ -9,6 +9,12 @@ namespace WorlWithAPI.Models.Editers
 {
     internal class UpdateCountry : IUpdateCountry
     {
+        /// <summary>
+        /// Создаёт строку SQL запроса для обновления таблица стран
+        /// </summary>
+        /// <param name="country"></param>
+        /// <param name="id">Индетификатор соответствующий этой стране, не должен быть равен -1</param>
+        /// <returns></returns>
         public string UpdateCountryString(Country country, int id) => $"UPDATE [dbo].[Country] " +
             $"SET " +
             $"[Name] = '{country.Name}', " +

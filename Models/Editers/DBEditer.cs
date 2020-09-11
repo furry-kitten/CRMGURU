@@ -9,8 +9,15 @@ using System.Windows.Forms;
 
 namespace WorlWithAPI.Models.Editers
 {
+    /// <summary>
+    /// Выполняет запросы на изменения базы
+    /// </summary>
     internal class DBEditer
     {
+        /// <summary>
+        /// Выполняет запрос.
+        /// </summary>
+        /// <param name="commandString">Запрос к базе данных</param>
         public virtual void EditDB(string commandString)
         {
             using(var connection = new SqlConnection(AppSettings.ConnectionString))

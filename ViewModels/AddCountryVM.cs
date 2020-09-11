@@ -27,7 +27,11 @@ namespace WorlWithAPI.ViewModels
         public ObservableCollection<Country> Countries
         {
             get => countries;
-            set { countries = value; OnPropertyChanged(); }
+            set
+            {
+                countries = value;
+                OnPropertyChanged();
+            }
         }
 
         private void Add()
@@ -59,9 +63,13 @@ namespace WorlWithAPI.ViewModels
                 OnPropertyChanged("Countries");
 
                 if (countryID == -1)
+                {
                     editer.EditDB(new InsertCountry().Insert(country));
+                }
                 else
+                {
                     MessageBox.Show($"{country.Name}");
+                }
             }
         }
     }

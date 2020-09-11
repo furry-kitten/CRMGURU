@@ -9,8 +9,16 @@ using System.Windows;
 
 namespace WorlWithAPI.Models.Readers
 {
+    /// <summary>
+    /// Класс для чтения базы данных
+    /// </summary>
     internal class DBReader
     {
+        /// <summary>
+        /// Выполняет запрос и возвращает целое значение (id), если записей в базе на найдено вернёт -1
+        /// </summary>
+        /// <param name="commandString"></param>
+        /// <returns></returns>
         public int GetID(string commandString)
         {
             int id = -1;
@@ -34,6 +42,10 @@ namespace WorlWithAPI.Models.Readers
             return id;
         }
 
+        /// <summary>
+        /// Возвращает список стран, хранящихся в базе данных. Если таблица пуста, вернёт пустой список
+        /// </summary>
+        /// <returns></returns>
         public List<Country> GetAllCountriesFromDB()
         {
             var cities = new List<City>();

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace WorlWithAPI.Models
 {
+    /// <summary>
+    /// Класс оповещающий View об изменении свойства
+    /// </summary>
     [DataContract]
     public class BaseVM : INotifyPropertyChanged
     {

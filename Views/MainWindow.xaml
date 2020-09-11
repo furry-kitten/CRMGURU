@@ -35,6 +35,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
+            <!--
+            Навигация
+            -->
             <Button Content="Найти по имени"
                     Grid.Column="1"
                     Command="{Binding Search}">
@@ -50,6 +53,9 @@
             
         </Grid>
 
+        <!--
+        Отображение страниц
+        -->
         <Frame x:Name="FrameContent"
                Grid.Row="1"
                x:FieldModifier="public"

@@ -9,6 +9,11 @@ namespace WorlWithAPI.Models.Editers
 {
     internal class InsertCountry : ICountrySaver
     {
+        /// <summary>
+        /// Создаёт строку SQL запроса на заполнение таблицы 
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public string Insert(Country country) =>
             $"INSERT INTO [dbo].[{AppSettings.TableCountry}] ([Name], [Capital], [Area], [Towspeople], [Region], [Code]) " +
             $"VALUES ('{country.Name}', {country.CapitalCity.ID}, {country.Area}, {country.Townspeople}, {country.Region.ID}, '{country.Code}')";

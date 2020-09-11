@@ -24,10 +24,5 @@ namespace WorlWithAPI.Views
         {
             InitializeComponent();
         }
-
-        private void TextBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
     }
 }

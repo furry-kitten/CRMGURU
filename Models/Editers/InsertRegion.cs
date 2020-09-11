@@ -9,6 +9,11 @@ namespace WorlWithAPI.Models.Editers
 {
     internal class InsertRegion : IRegionSaver
     {
+        /// <summary>
+        /// Создаёт строку SQL запроса на заполнение таблицы регионов
+        /// </summary>
+        /// <param name="region"></param>
+        /// <returns></returns>
         public string Insert(Region region) => $"INSERT INTO [dbo].[{AppSettings.TableRegion}] ([Name]) " +
             $"VALUES ('{region.Name}')";
     }

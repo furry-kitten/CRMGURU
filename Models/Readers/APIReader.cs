@@ -14,10 +14,18 @@ using System.Windows;
 
 namespace WorlWithAPI.Models.Readers
 {
+    /// <summary>
+    /// Класс для общения с API
+    /// </summary>
     internal class APIReader
     {
         private HttpClient client = new HttpClient();
 
+        /// <summary>
+        /// Запрашивает у API список стран
+        /// </summary>
+        /// <param name="name">Полное название или часть названия страны</param>
+        /// <returns></returns>
         public async Task<List<Country>> GetCoutries(string name)
         {
             List<Country> countries = new List<Country>();

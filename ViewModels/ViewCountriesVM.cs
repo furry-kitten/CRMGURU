@@ -139,6 +139,7 @@ namespace WorlWithAPI.ViewModels
         {
 
         }
+
         public ViewCountriesVM(INavigationManager navigationManager)
         {
             this.navigationManager = navigationManager;
@@ -149,12 +150,20 @@ namespace WorlWithAPI.ViewModels
         public string SearchByName
         {
             get => searchByName;
-            set { searchByName = value; OnPropertyChanged(); }
+            set
+            {
+                searchByName = value;
+                OnPropertyChanged();
+            }
         }
         public ObservableCollection<Country> Countries
         {
             get => countries;
-            set { countries = value; OnPropertyChanged(); }
+            set
+            {
+                countries = value;
+                OnPropertyChanged();
+            }
         }
 
         public void AllCountries()
